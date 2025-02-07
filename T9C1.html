@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clue 1: Advanced Fibonacci Puzzle</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-image: url("images/bg.jpeg"); /* Your Da Vinci-related image */
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+
+    .header {
+      background-color: rgb(89, 51, 5); /* Transparent background */
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for content */
+      border-radius: 10px;
+    }
+
+    .clue {
+      background-color: rgba(234, 187, 87, 0.76);
+      border: 2px solid #2c3e50;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .clue h3 {
+      color: #2c3e50;
+    }
+
+    .input-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-container input {
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+      border: 2px solid #2c3e50;
+      border-radius: 5px;
+    }
+
+    .btn {
+      background-color: #2c3e50;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: rgb(89, 51, 5);
+    }
+
+    .hint {
+      color: #e74c3c;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    .solution {
+      display: none;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .next-clue {
+      display: none;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>The Da Vinci Mystery</h1>
+    <p>Use the Fibonacci sequence to uncover the missing numbers.</p>
+  </div>
+
+  <div class="container">
+    <!-- Clue 1: Advanced Fibonacci Sequence Puzzle -->
+    <div class="clue" id="clue1">
+      <h3>Clue 1: Advanced Fibonacci Sequence Puzzle</h3>
+      <p>Fill in the missing numbers in the following Fibonacci sequence:</p>
+      <p><em>144, __, 233, __, 610, __, 1597, 2584, __</em></p>
+      <p>What are the missing numbers? There are four blanks to fill in.</p>
+
+      <div class="input-container">
+        <label for="clue1-answer">Enter the missing numbers (comma separated):</label>
+        <input type="text" id="clue1-answer" placeholder="Your answer (e.g., 233, 377, 987, 1597)">
+        <button class="btn" onclick="checkClue1()">Submit</button>
+        <p class="hint" id="clue1-hint">Hint: Remember, each number is the sum of the two preceding numbers in the Fibonacci sequence.</p>
+      </div>
+      <div class="solution" id="clue1-solution">Correct! The missing numbers are 233, 377, 987, and 1597. Now, on to the next clue!</div>
+      <div class="next-clue" id="next-clue1">
+        <a href="T9C2.html" class="btn">Next Clue</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function checkClue1() {
+      const answer = document.getElementById('clue1-answer').value.replace(/\s+/g, '').toUpperCase();
+      const correctAnswer = '233,377,987,1597';
+      
+      if (answer === correctAnswer) {
+        document.getElementById('clue1-solution').style.display = 'block';
+        document.getElementById('next-clue1').style.display = 'block';
+      } else {
+        alert('Incorrect! Try again.');
+      }
+    }
+  </script>
+
+</body>
+</html>
